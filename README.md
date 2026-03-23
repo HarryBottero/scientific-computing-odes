@@ -1,6 +1,18 @@
 # Scientific Computing ODEs
 
-This repository implements and compares numerical ODE solvers for particle advection in two-dimensional vortex flows. The project focuses on Euler, RK4, and adaptive RKF45 methods, with comparisons against a high-accuracy SciPy benchmark.
+This project studies Lagrangian particle trajectories in analytically defined 2D vortex flows.
+It implements Euler, RK4, and adaptive RKF45 solvers in pure Python, benchmarks them against SciPy's DOP853 solver, and extends the system to a blinking-vortex flow to explore chaotic advection and FTLE diagnostics.
+
+## Repo map
+
+- `src/flows.py` — steady and blinking vortex velocity fields, RHS wrappers, streamfunction
+- `src/solvers.py` — Euler, RK4, RKF45 integrators
+- `src/benchmarks.py` — reference solution, interpolation, error metrics, benchmarking tables
+- `src/ftle.py` — nearby-trajectory divergence and FTLE field estimation
+- `src/plotting.py` — figures for streamlines, trajectories, convergence, adaptive step sizes, FTLE heatmap
+- `notebooks/01_exploration.ipynb` — scratch analysis and solver checks
+- `notebooks/02_final_figures.ipynb` — clean figure-generation notebook for the README / report
+- `tests/` — basic numerical and physics **checks**
 
 ## Current status
 
@@ -11,9 +23,9 @@ This repository implements and compares numerical ODE solvers for particle advec
 - [ ] Blinking vortex extension
 - [ ] FTLE analysis
 
-## Structure
+## Questions this repo is set to answer
 
-- `src/`: reusable solver, flow, benchmarking, and plotting code
-- `notebooks/`: exploratory and final analysis notebooks
-- `tests/`: unit tests for numerical methods
-- `figures/`: generated figures
+- How much more accurate is RK4 than Euler at the same step size?
+- How does adaptive RKF45 trade off tolerance against runtime?
+- Does the steady-flow streamfunction remain approximately conserved numerically?
+- Where in the blinking-vortex flow do nearby trajectories separate fastest?
