@@ -23,8 +23,8 @@ def plot_stream_field(
     if ax is None:
         _, ax = plt.subplots(figsize=(8, 6))
 
-    x = np.linspace(*xlim, n)
-    y = np.linspace(*ylim, n)
+    x = np.linspace(xlim[0], xlim[1], n)
+    y = np.linspace(ylim[0], ylim[1], n)
     X, Y = np.meshgrid(x, y)
     if t is None:
         U, V = velocity_fn(X, Y, **velocity_kwargs)
