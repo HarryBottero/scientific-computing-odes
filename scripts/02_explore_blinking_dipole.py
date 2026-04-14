@@ -72,6 +72,7 @@ xs, ys, field = ftle_grid(
     solver="rkf45",
     solver_kwargs=ftle_solver_kwargs,
     rhs_kwargs=flow_kwargs,
+    progress=True,
 )
 
 print("FTLE field shape:", field.shape)
