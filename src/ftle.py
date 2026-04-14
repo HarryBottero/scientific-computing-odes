@@ -111,21 +111,21 @@ def ftle_grid(
                 field[j, i] = np.nan
 
                 if progress and ((j + 1) % 5 == 0 or (j + 1) == ny):
-            elapsed = time.perf_counter() - start
-            rows_done = j + 1
-            eta = elapsed * (ny - rows_done) / rows_done
+                    elapsed = time.perf_counter() - start
+                    rows_done = j + 1
+                    eta = elapsed * (ny - rows_done) / rows_done
 
-            mins, secs = divmod(elapsed, 60)
-            eta_mins, eta_secs = divmod(eta, 60)
-            timestamp = time.strftime("%H:%M:%S")
+                    mins, secs = divmod(elapsed, 60)
+                    eta_mins, eta_secs = divmod(eta, 60)
+                    timestamp = time.strftime("%H:%M:%S")
 
-            print(
-                f"[{timestamp}] "
-                f"FTLE row {rows_done}/{ny} "
-                f"({100 * rows_done / ny:5.1f}%)  "
-                f"elapsed {int(mins):02d}:{secs:04.1f}  "
-                f"ETA {int(eta_mins):02d}:{eta_secs:04.1f}",
-                flush=True,
-            )
+                    print(
+                        f"[{timestamp}] "
+                        f"FTLE row {rows_done}/{ny} "
+                        f"({100 * rows_done / ny:5.1f}%)  "
+                        f"elapsed {int(mins):02d}:{secs:04.1f}  "
+                        f"ETA {int(eta_mins):02d}:{eta_secs:04.1f}",
+                        flush=True,
+                    )
 
     return xs, ys, field
